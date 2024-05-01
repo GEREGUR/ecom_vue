@@ -58,7 +58,7 @@ export function SignUp() {
         </div>
         <div className="mt-4 text-center text-sm">
           Already have an account?
-          <Link className="underline" href="/auth/sign-in">
+          <Link className="underline ml-2" href="/auth/sign-in">
             Sign in
           </Link>
         </div>
