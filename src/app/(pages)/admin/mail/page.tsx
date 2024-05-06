@@ -9,7 +9,7 @@ export default function MailPage() {
   const collapsed = cookies().get("react-resizable-panels:collapsed");
 
   const defaultLayout = layout ? JSON.parse(layout.value) : undefined;
-  const defaultCollapsed = collapsed ? JSON.parse(collapsed.value) : undefined;
+  const defaultCollapsed = !collapsed ? JSON.parse(collapsed.value) : undefined;
 
   return (
     <>

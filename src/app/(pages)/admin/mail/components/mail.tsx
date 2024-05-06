@@ -13,6 +13,7 @@ import {
   ShoppingCart,
   Trash2,
   Users2,
+  AlignJustify,
 } from "lucide-react";
 
 import { cn } from "@/lib/utils";
@@ -58,6 +59,14 @@ export function Mail({
 }: MailProps) {
   const [isCollapsed, setIsCollapsed] = React.useState(defaultCollapsed);
   const [mail] = useMail();
+  const [openShops, setOpenShops] = React.useState(false);
+
+  const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    setOpenShops(!openShops);
+  };
+
+  console.log(openShops);
 
   return (
     <TooltipProvider delayDuration={0}>
@@ -96,49 +105,23 @@ export function Mail({
             <AccountSwitcher isCollapsed={isCollapsed} accounts={accounts} />
           </div>
           <Separator />
-          <Nav
-            isCollapsed={isCollapsed}
-            links={[
-              {
-                title: "Inbox",
-                label: "128",
-                icon: Inbox,
-                variant: "default",
-              },
-              {
-                title: "Drafts",
-                label: "9",
-                icon: File,
-                variant: "ghost",
-              },
-              {
-                title: "Sent",
-                label: "",
-                icon: Send,
-                variant: "ghost",
-              },
-              {
-                title: "Junk",
-                label: "23",
-                icon: ArchiveX,
-                variant: "ghost",
-              },
-              {
-                title: "Trash",
-                label: "",
-                icon: Trash2,
-                variant: "ghost",
-              },
-              {
-                title: "Archive",
-                label: "",
-                icon: Archive,
-                variant: "ghost",
-              },
-            ]}
-          />
+          <button onClick={handleClick}>
+            <Nav
+              isCollapsed={isCollapsed}
+              name="My shops"
+              links={[
+                {
+                  title: "Wildberries",
+                  label: "",
+                  icon: AlignJustify,
+                  variant: "default",
+                  shopId: 123,
+                },
+              ]}
+            />
+          </button>
           <Separator />
-          <Nav
+          {/* <Nav
             isCollapsed={isCollapsed}
             links={[
               {
@@ -172,7 +155,7 @@ export function Mail({
                 variant: "ghost",
               },
             ]}
-          />
+          /> */}
         </ResizablePanel>
         <ResizableHandle withHandle />
         <ResizablePanel defaultSize={defaultLayout[1]} minSize={30}>
