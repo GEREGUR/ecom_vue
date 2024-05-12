@@ -6,6 +6,12 @@ body,
 html {
   height: 100vh;
 }
+/* 
+body,
+root,
+* {
+  outline: 1px solid red;
+} */
 
 @layer base {
   :root {

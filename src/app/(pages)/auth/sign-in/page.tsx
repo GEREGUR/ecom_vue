@@ -15,6 +15,7 @@ import { FormEvent, useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useMutation } from "@tanstack/react-query";
+import { SignInForm } from "@/components/SignInForm";
 
 const login = async (email: string, password: string) => {
   const credentials = {
@@ -91,52 +92,8 @@ export default function SignIn() {
   };
 
   return (
-    <div className="min-h-full w-full flex items-center justify-center">
-      <Card className="mx-auto max-w-md sm:max-w-lg">
-        <CardHeader>
-          <CardTitle className="text-2xl">Login</CardTitle>
-          <CardDescription>
-            Enter your email below to login to your account
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <form className="grid gap-6" onSubmit={handleSumbit}>
-            <div className="grid gap-2">
-              <Label htmlFor="email">Email</Label>
-              <Input
-                id="email"
-                placeholder="m@example.com"
-                required
-                type="email"
-                onChange={(e) => setEmail(e.target.value)}
-              />
-            </div>
-            <div className="grid gap-2">
-              <div className="flex items-center justify-between">
-                <Label htmlFor="password">Password</Label>
-                <Link className="text-sm underline" href="#">
-                  Forgot your password?
-                </Link>
-              </div>
-              <Input
-                id="password"
-                required
-                type="password"
-                onChange={(e) => setPassword(e.target.value)}
-              />
-            </div>
-            <Button className="w-full" type="submit">
-              Login
-            </Button>
-          </form>
-          <div className="mt-6 text-center text-sm">
-            Don&apos;t have an account?
-            <Link className="underline" href="#">
-              Sign up
-            </Link>
-          </div>
-        </CardContent>
-      </Card>
+    <div className="h-screen min-w-full flex items-center justify-center">
+      <SignInForm />
     </div>
   );
 }

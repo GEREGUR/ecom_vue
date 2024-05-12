@@ -5,8 +5,8 @@ import { cn } from "@/lib/utils";
 import { Badge } from "@/registry/new-york/ui/badge";
 import { ScrollArea } from "@/registry/new-york/ui/scroll-area";
 import { Separator } from "@/registry/new-york/ui/separator";
-import { Mail } from "@/app/(pages)/admin/mail/data";
-import { useMail } from "@/app/(pages)/admin/mail/use-mail";
+import { Mail } from "@/app/(pages)/dashboard/data";
+import { useMail } from "@/app/(pages)/dashboard/use-mail";
 
 interface MailListProps {
   items: Mail[];
@@ -14,7 +14,9 @@ interface MailListProps {
 
 export function MailList({ items }: MailListProps) {
   const [mail, setMail] = useMail();
-
+  {
+    /* /api/v1/personal-office/{id}/ */
+  }
   return (
     <ScrollArea className="h-screen">
       <div className="flex flex-col gap-2 p-4 pt-0">

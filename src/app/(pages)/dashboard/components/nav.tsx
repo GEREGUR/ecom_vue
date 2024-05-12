@@ -10,6 +10,7 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "@/registry/new-york/ui/tooltip";
+import { AddShop } from "./add-shop";
 
 interface NavProps {
   isCollapsed: boolean;
@@ -21,16 +22,24 @@ interface NavProps {
     variant: "default" | "ghost";
     shopId: number;
   }[];
+  shops: {
+    title: string;
+    id: number;
+  }[];
 }
 
-export function Nav({ links, isCollapsed }: NavProps) {
+export function Nav({ links, isCollapsed, name }: NavProps) {
   return (
     <div
       data-collapsed={isCollapsed}
       className="group flex flex-col gap-4 py-2 data-[collapsed=true]:py-2"
     >
       <nav className="grid gap-1 px-2 group-[[data-collapsed=true]]:justify-center group-[[data-collapsed=true]]:px-2">
-        {links.map((link, index) =>
+        <h2 className="font-bold text-start text-xl pointer-events-none">
+          {name}
+        </h2>
+        <AddShop />
+        {/* {links.map((link, index) =>
           isCollapsed ? (
             <Tooltip key={index} delayDuration={0}>
               <TooltipTrigger asChild>
@@ -82,7 +91,7 @@ export function Nav({ links, isCollapsed }: NavProps) {
               )}
             </Link>
           )
-        )}
+        )} */}
       </nav>
     </div>
   );

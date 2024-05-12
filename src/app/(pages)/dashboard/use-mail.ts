@@ -1,6 +1,6 @@
 import { atom, useAtom } from "jotai";
 
-import { Mail, mails } from "@/app/(pages)/admin/mail/data";
+import { Mail, mails } from "@/app/(pages)/dashboard/data";
 
 type Config = {
   selected: Mail["id"] | null;

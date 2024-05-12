@@ -31,12 +31,13 @@ import {
   TabsTrigger,
 } from "@/registry/new-york/ui/tabs";
 import { TooltipProvider } from "@/registry/new-york/ui/tooltip";
-import { AccountSwitcher } from "@/app/(pages)/admin/mail/components/account-switcher";
-import { MailDisplay } from "@/app/(pages)/admin/mail/components/mail-display";
-import { MailList } from "@/app/(pages)/admin/mail/components/mail-list";
-import { Nav } from "@/app/(pages)/admin/mail/components/nav";
-import { type Mail } from "@/app/(pages)/admin/mail/data";
-import { useMail } from "@/app/(pages)/admin/mail/use-mail";
+import { AccountSwitcher } from "@/app/(pages)/dashboard/components/account-switcher";
+import { MailDisplay } from "@/app/(pages)/dashboard/components/mail-display";
+import { MailList } from "@/app/(pages)/dashboard/components/mail-list";
+import { Nav } from "@/app/(pages)/dashboard/components/nav";
+import { type Mail } from "@/app/(pages)/dashboard/data";
+import { useMail } from "@/app/(pages)/dashboard/use-mail";
+import Button from "@/components/ui/button";
 
 interface MailProps {
   accounts: {
@@ -105,21 +106,21 @@ export function Mail({
             <AccountSwitcher isCollapsed={isCollapsed} accounts={accounts} />
           </div>
           <Separator />
-          <button onClick={handleClick}>
-            <Nav
-              isCollapsed={isCollapsed}
-              name="My shops"
-              links={[
-                {
-                  title: "Wildberries",
-                  label: "",
-                  icon: AlignJustify,
-                  variant: "default",
-                  shopId: 123,
-                },
-              ]}
-            />
-          </button>
+          <button onClick={handleClick}></button>
+          <Nav
+            isCollapsed={isCollapsed}
+            name="My shops"
+            links={[
+              {
+                title: "Wildberries",
+                label: "",
+                icon: AlignJustify,
+                variant: "default",
+                shopId: 123,
+              },
+            ]}
+          />
+
           <Separator />
           {/* <Nav
             isCollapsed={isCollapsed}
