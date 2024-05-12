@@ -30,14 +30,7 @@ export function AddShop() {
             <Label className="text-right" htmlFor="file">
               Name
             </Label>
-            <Input
-              className="col-span-3"
-              id="name"
-              value="Pedro Duarte"
-              onChange={(e) => {
-                Value = e.target.value;
-              }}
-            />
+            <Input className="col-span-3" id="name" />
           </div>
           <div className="grid grid-cols-4 items-center gap-4">
             <Label className="text-right" htmlFor="username">

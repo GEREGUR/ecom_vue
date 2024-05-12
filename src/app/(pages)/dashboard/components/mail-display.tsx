@@ -13,10 +13,10 @@ import {
   Trash2,
 } from "lucide-react";
 
-import {
-  DropdownMenuContent,
-  DropdownMenuItem,
-} from "@/registry/default/ui/dropdown-menu";
+// import {
+//   DropdownMenuContent,
+//   DropdownMenuItem,
+// } from "@/registry/default/ui/dropdown-menu";
 import {
   Avatar,
   AvatarFallback,
@@ -103,7 +103,7 @@ export function MailDisplay({ mail }: MailDisplayProps) {
                     >
                       Later today{" "}
                       <span className="ml-auto text-muted-foreground">
-                        {format(addHours(today, 4), "E, h:m b")}
+                        {/* {format(addHours(today, 4), "E, h:m b")} */}
                       </span>
                     </Button>
                     <Button
@@ -112,7 +112,7 @@ export function MailDisplay({ mail }: MailDisplayProps) {
                     >
                       Tomorrow
                       <span className="ml-auto text-muted-foreground">
-                        {format(addDays(today, 1), "E, h:m b")}
+                        {/* {format(addDays(today, 1), "E, h:m b")} */}
                       </span>
                     </Button>
                     <Button
@@ -121,7 +121,7 @@ export function MailDisplay({ mail }: MailDisplayProps) {
                     >
                       This weekend
                       <span className="ml-auto text-muted-foreground">
-                        {format(nextSaturday(today), "E, h:m b")}
+                        {/* {format(nextSaturday(today), "E, h:m b")} */}
                       </span>
                     </Button>
                     <Button
@@ -130,7 +130,7 @@ export function MailDisplay({ mail }: MailDisplayProps) {
                     >
                       Next week
                       <span className="ml-auto text-muted-foreground">
-                        {format(addDays(today, 7), "E, h:m b")}
+                        {/* {format(addDays(today, 7), "E, h:m b")} */}
                       </span>
                     </Button>
                   </div>
@@ -180,12 +180,12 @@ export function MailDisplay({ mail }: MailDisplayProps) {
               <span className="sr-only">More</span>
             </Button>
           </DropdownMenuTrigger>
-          <DropdownMenuContent align="end">
+          {/* <DropdownMenuContent align="end">
             <DropdownMenuItem>Mark as unread</DropdownMenuItem>
             <DropdownMenuItem>Star thread</DropdownMenuItem>
             <DropdownMenuItem>Add label</DropdownMenuItem>
             <DropdownMenuItem>Mute thread</DropdownMenuItem>
-          </DropdownMenuContent>
+          </DropdownMenuContent> */}
         </DropdownMenu>
       </div>
       <Separator />
@@ -212,7 +212,7 @@ export function MailDisplay({ mail }: MailDisplayProps) {
             </div>
             {mail.date && (
               <div className="ml-auto text-xs text-muted-foreground">
-                {format(new Date(mail.date), "PPpp")}
+                {/* {format(new Date(mail.date), "PPpp")} */}
               </div>
             )}
           </div>

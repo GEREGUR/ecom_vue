@@ -4,7 +4,7 @@ import Link from "next/link";
 import { LucideIcon } from "lucide-react";
 
 import { cn } from "@/lib/utils";
-import { buttonVariants } from "@/registry/default/ui/button";
+// import { buttonVariants } from "@/registry/default/ui/button";
 import {
   Tooltip,
   TooltipContent,
@@ -21,10 +21,6 @@ interface NavProps {
     icon: LucideIcon;
     variant: "default" | "ghost";
     shopId: number;
-  }[];
-  shops: {
-    title: string;
-    id: number;
   }[];
 }
 

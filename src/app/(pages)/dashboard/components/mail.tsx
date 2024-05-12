@@ -37,7 +37,7 @@ import { MailList } from "@/app/(pages)/dashboard/components/mail-list";
 import { Nav } from "@/app/(pages)/dashboard/components/nav";
 import { type Mail } from "@/app/(pages)/dashboard/data";
 import { useMail } from "@/app/(pages)/dashboard/use-mail";
-import Button from "@/components/ui/button";
+import { Button } from "@/components/ui/button";
 
 interface MailProps {
   accounts: {
@@ -62,7 +62,7 @@ export function Mail({
   const [mail] = useMail();
   const [openShops, setOpenShops] = React.useState(false);
 
-  const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
+  const handleClick = (e: { preventDefault: () => void }) => {
     e.preventDefault();
     setOpenShops(!openShops);
   };
@@ -86,12 +86,12 @@ export function Mail({
           collapsible={true}
           minSize={15}
           maxSize={20}
-          onCollapse={(collapsed: any) => {
-            setIsCollapsed(collapsed);
-            document.cookie = `react-resizable-panels:collapsed=${JSON.stringify(
-              collapsed
-            )}`;
-          }}
+          // onCollapse={(collapsed: any) => {
+          //   setIsCollapsed(collapsed);
+          //   document.cookie = `react-resizable-panels:collapsed=${JSON.stringify(
+          //     collapsed
+          //   )}`;
+          // }}
           className={cn(
             isCollapsed &&
               "min-w-[50px] transition-all duration-300 ease-in-out"

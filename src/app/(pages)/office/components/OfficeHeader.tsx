@@ -12,6 +12,7 @@ import {
   DropdownMenu,
 } from "@/components/ui/dropdown-menu";
 import { EllipsisVerticalIcon } from "lucide-react";
+import { JSX, SVGProps } from "react";
 
 export default function OfficeHeader() {
   return (
@@ -72,7 +73,9 @@ export default function OfficeHeader() {
   );
 }
 
-function ComputerIcon(props) {
+function ComputerIcon(
+  props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>
+) {
   return (
     <svg
       {...props}
@@ -94,7 +97,7 @@ function ComputerIcon(props) {
   );
 }
 
-function MenuIcon(props) {
+function MenuIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}
@@ -115,7 +118,7 @@ function MenuIcon(props) {
   );
 }
 
-function MoonIcon(props) {
+function MoonIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}
@@ -134,7 +137,9 @@ function MoonIcon(props) {
   );
 }
 
-function MountainIcon(props) {
+function MountainIcon(
+  props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>
+) {
   return (
     <svg
       {...props}
@@ -153,7 +158,7 @@ function MountainIcon(props) {
   );
 }
 
-function SunIcon(props) {
+function SunIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}
