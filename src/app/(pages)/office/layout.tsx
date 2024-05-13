@@ -1,4 +1,4 @@
-import MaxWidthWrapper from "../dashboard/components/MaxWidthWrapper";
+import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import OfficeHeader from "./components/OfficeHeader";
 
 const PersonalOfficeLayout = ({

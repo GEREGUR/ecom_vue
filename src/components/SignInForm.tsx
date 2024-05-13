@@ -1,3 +1,5 @@
+"use client";
+
 import {
   CardTitle,
   CardDescription,
@@ -12,8 +14,60 @@ import Link from "next/link";
 import { SlSocialVkontakte } from "react-icons/sl";
 import { FaTelegram, FaYandex } from "react-icons/fa";
 import { MdOutlineAlternateEmail } from "react-icons/md";
+import axios from "axios";
+import { useState, useRef } from "react";
+import { useMutation } from "@tanstack/react-query";
+import { login } from "../../_utils/auth";
+import { useRouter } from "next/navigation";
+import { loginSchema } from "../../schemas/loginSchema";
+
+const apiUrl = process.env.NEXT_PUBLIC_BASE_URL;
 
 export function SignInForm() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [validationErrors, setValidationErrors] = useState<string[]>([]);
+
+  const formRef = useRef<HTMLFormElement>(null);
+  const router = useRouter();
+
+  const {
+    mutateAsync: loginUser,
+    isPending,
+    error,
+  } = useMutation({
+    mutationFn: login,
+    onSuccess: (data) => {
+      router.push("/office");
+    },
+    onError: (error: Error) => {
+      console.error("Login Error:", error.message);
+    },
+  });
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setValidationErrors([]);
+    const result = loginSchema.safeParse({
+      email,
+      password,
+    });
+
+    if (!result.success) {
+      const errors = result.error.issues.map(
+        (issue) => `${issue.path.join(".")} - ${issue.message}`
+      );
+      setValidationErrors(errors);
+      return;
+    }
+
+    try {
+      await loginUser(result.data);
+    } catch (error: any) {
+      console.error("Error in form handling:", error.message);
+    }
+  };
+
   return (
     <Card className="mx-auto max-w-xs">
       <CardHeader>
@@ -22,7 +76,7 @@ export function SignInForm() {
           Enter your email and password to sign in
         </CardDescription>
       </CardHeader>
-      <CardContent>
+      <CardContent ref={formRef} onSubmit={handleSubmit}>
         <div className="grid gap-4">
           <div className="grid gap-2">
             <Label htmlFor="email">Email</Label>
@@ -31,13 +85,20 @@ export function SignInForm() {
               placeholder="m@example.com"
               required
               type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
           <div className="grid gap-2">
             <Label htmlFor="password">Password</Label>
-            <Input id="password" type="password" />
+            <Input
+              id="password"
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
           </div>
-          <Button className="w-full" type="submit">
+          <Button className="w-full" type="submit" disabled={isPending}>
             Sign in
           </Button>
           <div className="grid grid-cols-3 gap-2">
@@ -62,6 +123,11 @@ export function SignInForm() {
             Sign up
           </Link>
         </div>
+        {error && (
+          <p className="mt-4 text-center text-red-500">
+            Error: {(error as Error).message}
+          </p>
+        )}
       </CardContent>
     </Card>
   );

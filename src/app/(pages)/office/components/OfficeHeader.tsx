@@ -16,7 +16,7 @@ import { JSX, SVGProps } from "react";
 
 export default function OfficeHeader() {
   return (
-    <header className="fixed w-full flex items-center justify-between px-[2rem] py-3 bg-white shadow-sm h-14 dark:bg-gray-900">
+    <header className="fixed w-full z-50 flex items-center justify-between px-[2rem] py-3 bg-white h-14 dark:bg-gray-900 border-b-[1px] border-[#e5e7eb]">
       <Link
         className="flex items-center justify-center gap-2 font-semibold text-gray-900 dark:text-gray-50 h-9 w-9 md:w-auto md:h-auto"
         href="#"

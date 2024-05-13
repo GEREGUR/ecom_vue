@@ -1,3 +1,6 @@
+"use client";
+
+import { useState, FormEvent } from "react";
 import {
   CardTitle,
   CardDescription,
@@ -13,7 +16,17 @@ import { FaTelegram, FaYandex } from "react-icons/fa";
 import { SlSocialVkontakte } from "react-icons/sl";
 import { MdOutlineAlternateEmail } from "react-icons/md";
 
+const signUp = async () => {};
+
+const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+};
+
 export function SignUpForm() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+
   return (
     <Card className="mx-auto max-w-xs">
       <CardHeader>
@@ -31,11 +44,27 @@ export function SignUpForm() {
               placeholder="m@example.com"
               required
               type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
           <div className="grid gap-2">
             <Label htmlFor="password">Password</Label>
-            <Input id="password" type="password" />
+            <Input
+              id="password"
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
+          <div className="grid gap-2">
+            <Label htmlFor="password">Confirm password</Label>
+            <Input
+              id="password"
+              type="password"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+            />
           </div>
           <Button className="w-full" type="submit">
             Create an account
